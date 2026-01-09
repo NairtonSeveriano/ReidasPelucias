@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rei das Pelúcias | Amarelo Ouro e Cinza</title>
+    <meta name="description" content="As pelúcias mais exclusivas de Recife vindas das máquinas de garra. Encontre-nos na Feirinha da Aurora aos sábados e domingos!">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --ouro: #FFD700;
+            --ouro-dark: #CCAC00;
+            --cinza-escuro: #333333;
+            --cinza-claro: #F5F5F5;
+            --cinza-medio: #707070;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Cores Customizadas */
+        .bg-ouro { background-color: var(--ouro); }
+        .text-ouro { color: var(--ouro); }
+        .border-ouro { border-color: var(--ouro); }
+        .bg-cinza { background-color: var(--cinza-escuro); }
+        .text-cinza { color: var(--cinza-escuro); }
+
+        /* Estilo do Banner Carrossel */
+        .carousel-container {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Botão Principal */
+        .btn-principal {
+            background-color: var(--ouro);
+            color: var(--cinza-escuro);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-principal:hover {
+            background-color: var(--ouro-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Cards de Pelúcia */
+        .card-pelucia {
+            background: white;
+            border-bottom: 6px solid var(--ouro);
+            transition: transform 0.3s ease;
+        }
+
+        .card-pelucia:hover {
+            transform: translateY(-10px);
+        }
+
+        .img-container {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-pelucia:hover .img-container img {
+            transform: scale(1.1);
+        }
+
+        /* Animação de Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shadow-ouro {
+            box-shadow: 0 10px 30px -10px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 bg-white shadow-md border-b-4 border-ouro">
+        <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="Escudo.jpg" alt="Logo Rei das Pelúcias" class="w-14 h-14 rounded-full border-2 border-ouro object-cover">
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-gray-800 leading-none">REI DAS PELÚCIAS</span>
+                    <span class="text-xs font-bold text-ouro-dark tracking-widest">PERNAMBUCO</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex gap-8 font-bold text-cinza-medio uppercase text-sm">
+                <a href="#inicio" class="hover:text-ouro transition">Início</a>
+                <a href="#colecoes" class="hover:text-ouro transition">Pelúcias</a>
+                <a href="#maquinas" class="hover:text-ouro transition">Máquinas</a>
+                <a href="#onde-estamos" class="hover:text-ouro transition">Feiras</a>
+            </div>
+
+            <a href="https://wa.me/5581997274658" class="btn-principal px-6 py-2 rounded-full font-bold flex items-center gap-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                CONTATO
+            </a>
+        </div>
+    </nav>
+
+    <!-- Banner Carrossel (Início) -->
+    <section id="inicio" class="carousel-container pt-16">
+        <div class="carousel-slide active" style="background-image: url('IMG_20251130_122018_247.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('IMG_20251129_130432_408.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('IMG_20251214_183451_403.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('IMG_20251130_121926_856.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('IMG_20251129_144908_899.jpg');"></div>
+
+        <div class="carousel-overlay">
+            <div class="max-w-4xl text-white">
+                <div class="mb-4 inline-block bg-ouro text-cinza-escuro px-6 py-2 rounded font-black uppercase tracking-widest text-sm shadow-xl">
+                    Feirinha da Aurora - Recife
+                </div>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 drop-shadow-2xl">
+                    O REI DAS <span class="text-ouro">PELÚCIAS</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto font-medium drop-shadow-md">
+                    Pelúcias exclusivas de personagens, capturadas em máquinas de garra e tesoura.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#colecoes" class="bg-white text-cinza-escuro px-12 py-4 rounded-full font-bold text-lg hover:bg-ouro transition shadow-2xl">
+                        VER PELÚCIAS
+                    </a>
+                    <a href="https://wa.me/5581997274658" class="bg-ouro text-cinza-escuro px-12 py-4 rounded-full font-bold text-lg hover:bg-ouro-dark transition shadow-2xl">
+                        PEDIR PELO WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Controles do Carrossel (Ajustado para 5 slides) -->
+        <div id="carousel-dots" class="absolute bottom-10 left-0 right-0 flex justify-center gap-2">
+            <span class="w-12 h-2 bg-ouro rounded-full cursor-pointer"></span>
+            <span class="w-12 h-2 bg-white/30 rounded-full cursor-pointer"></span>
+            <span class="w-12 h-2 bg-white/30 rounded-full cursor-pointer"></span>
+            <span class="w-12 h-2 bg-white/30 rounded-full cursor-pointer"></span>
+            <span class="w-12 h-2 bg-white/30 rounded-full cursor-pointer"></span>
+        </div>
+    </section>
+
+    <!-- Barra de Destaques -->
+    <div class="bg-cinza text-white py-10 overflow-hidden border-y-4 border-ouro">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center font-black italic">
+            <div class="flex flex-col items-center gap-2 reveal">
+                <i data-lucide="crown" class="text-ouro w-10 h-10 mb-2"></i>
+                <span class="text-xl">PELÚCIAS DIFERENCIADAS</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 reveal" style="transition-delay: 0.1s;">
+                <i data-lucide="map-pin" class="text-ouro w-10 h-10 mb-2"></i>
+                <span class="text-xl">RECIFE - CAIS DA AURORA</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 reveal" style="transition-delay: 0.2s;">
+                <i data-lucide="truck" class="text-ouro w-10 h-10 mb-2"></i>
+                <span class="text-xl">ENTREGA EM TODO O BRASIL</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de Pelúcias (Coleções) -->
+    <section id="colecoes" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Nossas <span class="text-ouro">Coleções</span></h2>
+            <div class="w-32 h-2 bg-ouro mx-auto mb-6 rounded-full"></div>
+            <p class="text-cinza-medio text-xl font-medium">Temos pequenas, grandes e megas de diversos personagens!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Pequenas -->
+            <div class="card-pelucia rounded-[30px] overflow-hidden shadow-ouro reveal">
+                <div class="img-container">
+                    <img src="IMG_20251116_113031_037.jpg" alt="Pelúcias Pequenas Rei das Pelúcias">
+                </div>
+                <div class="p-8 text-center">
+                    <h3 class="text-3xl font-black mb-3">PEQUENAS</h3>
+                    <p class="text-cinza-medio font-medium">Ideais para colecionar e levar para qualquer lugar. Personagens exclusivos!</p>
+                </div>
+            </div>
+
+            <!-- Grandes -->
+            <div class="card-pelucia rounded-[30px] overflow-hidden shadow-ouro reveal" style="transition-delay: 0.1s;">
+                <div class="img-container">
+                    <img src="IMG_20251118_171955_728.jpg" alt="Pelúcias Grandes Rei das Pelúcias">
+                </div>
+                <div class="p-8 text-center">
+                    <h3 class="text-3xl font-black mb-3 text-ouro-dark">GRANDES</h3>
+                    <p class="text-cinza-medio font-medium">O tamanho perfeito para presentear e decorar seu quarto com fofura.</p>
+                </div>
+            </div>
+
+            <!-- Megas -->
+            <div class="card-pelucia rounded-[30px] overflow-hidden shadow-ouro reveal" style="transition-delay: 0.2s;">
+                <div class="img-container">
+                    <img src="IMG_20251122_143951_348.jpg" alt="Pelúcias Gigantes Megas Rei das Pelúcias">
+                </div>
+                <div class="p-8 text-center">
+                    <h3 class="text-3xl font-black mb-3">MEGAS</h3>
+                    <p class="text-cinza-medio font-medium">Pelúcias gigantes para abraços inesquecíveis. O destaque do Rei!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Máquinas -->
+    <section id="maquinas" class="py-24 px-6 bg-white border-y-8 border-cinza">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 reveal">
+                <div class="relative">
+                    <img src="Garra.jpg" alt="Máquina de Garra Rei das Pelúcias" class="rounded-[40px] shadow-2xl border-8 border-ouro">
+                    <div class="absolute -bottom-8 -right-8 w-48 h-48 rounded-full bg-ouro p-4 flex items-center justify-center text-center shadow-2xl border-4 border-white">
+                        <span class="font-black text-cinza-escuro text-xl uppercase italic">Direto da<br>Garra!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 reveal">
+                <h2 class="text-5xl font-black mb-8 leading-tight uppercase">Mestres das <span class="text-ouro">Máquinas</span></h2>
+                <p class="text-xl text-cinza-medio mb-8 leading-relaxed font-medium">
+                    Nosso diferencial está na origem! Todas as nossas pelúcias são conquistadas em **máquinas de garras** e **máquinas de corte em tesoura**. 
+                    Por isso, garantimos pelúcias raras, importadas e com a qualidade que você só encontra aqui.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-6 p-6 bg-cinza text-white rounded-[25px] border-l-8 border-ouro shadow-lg">
+                        <i data-lucide="target" class="text-ouro w-10 h-10 shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-xl uppercase">Máquinas de Garra</h4>
+                            <p class="text-gray-400">Capturamos os personagens mais amados do mundo.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6 p-6 bg-cinza text-white rounded-[25px] border-l-8 border-ouro shadow-lg">
+                        <i data-lucide="scissors" class="text-ouro w-10 h-10 shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-xl uppercase">Máquinas de Tesoura</h4>
+                            <p class="text-gray-400">De onde saem as nossas exclusivas pelúcias Megas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Distribuída -->
+    <section class="py-20 bg-cinza-claro">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="IMG_20251008_194728_842.jpg" alt="Exposição de Pelúcias" class="rounded-2xl h-64 w-full object-cover shadow-lg reveal">
+            <img src="IMG_20251129_130432_408.jpg" alt="Pelúcias Personagens" class="rounded-2xl h-64 w-full object-cover shadow-lg reveal" style="transition-delay: 0.1s;">
+            <img src="IMG_20251130_121926_856.jpg" alt="Máquina arcade" class="rounded-2xl h-64 w-full object-cover shadow-lg reveal" style="transition-delay: 0.2s;">
+            <img src="IMG_20251129_144908_899.jpg" alt="Pelúcias em Recife" class="rounded-2xl h-64 w-full object-cover shadow-lg reveal" style="transition-delay: 0.3s;">
+        </div>
+    </section>
+
+    <!-- Feira / Localização -->
+    <section id="onde-estamos" class="py-24 px-6 bg-cinza text-white border-t-8 border-ouro">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Nosso <span class="text-ouro">Castelo</span></h2>
+                <p class="text-gray-400 text-xl">Venha nos visitar na Feirinha da Aurora em Recife!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Horários -->
+                <div class="bg-white/5 p-10 rounded-[40px] border-2 border-ouro/30 reveal">
+                    <h3 class="text-3xl font-black mb-8 text-ouro flex items-center gap-3 uppercase">
+                        <i data-lucide="calendar"></i> Horários das Feiras
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-center bg-white/10 p-6 rounded-2xl border border-white/10">
+                            <div>
+                                <span class="block text-2xl font-black uppercase">Sábados</span>
+                                <span class="text-gray-400">Cais da Aurora</span>
+                            </div>
+                            <span class="bg-ouro text-cinza-escuro px-6 py-2 rounded-lg font-black text-xl italic shadow-ouro">15h às 20h</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white/10 p-6 rounded-2xl border border-white/10">
+                            <div>
+                                <span class="block text-2xl font-black uppercase">Domingos</span>
+                                <span class="text-gray-400">Cais da Aurora</span>
+                            </div>
+                            <span class="bg-ouro text-cinza-escuro px-6 py-2 rounded-lg font-black text-xl italic shadow-ouro">12h às 18h</span>
+                        </div>
+                    </div>
+                    <div class="mt-10 flex items-start gap-4 p-6 bg-ouro/10 rounded-2xl border border-ouro/30">
+                        <i data-lucide="map-pin" class="text-ouro w-8 h-8 shrink-0"></i>
+                        <p class="text-lg font-medium leading-tight">
+                            📍 Localização: Cais da Aurora, Recife/PE. Procure o stand mais alegre da feira!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Web / Social -->
+                <div class="reveal">
+                    <div class="bg-ouro p-10 rounded-[40px] text-cinza-escuro h-full flex flex-col justify-center shadow-ouro">
+                        <h3 class="text-4xl font-black mb-6 uppercase leading-none">Compre Online</h3>
+                        <p class="text-xl mb-10 font-bold leading-tight">Não quer esperar o final de semana? Peça agora pelo nosso domínio oficial:</p>
+                        
+                        <a href="http://reidaspelucias.rec.br" class="text-3xl font-black underline hover:text-black transition break-all leading-tight mb-10">
+                            reidaspelucias.rec.br
+                        </a>
+
+                        <div class="space-y-4">
+                            <a href="https://www.instagram.com/reidaspeluciaspe" class="flex items-center gap-4 text-xl font-black border-4 border-cinza-escuro p-4 rounded-2xl hover:bg-cinza-escuro hover:text-ouro transition">
+                                <i data-lucide="instagram" class="w-8 h-8"></i> @reidaspeluciaspe
+                            </a>
+                            <a href="https://wa.me/5581997274658" class="flex items-center gap-4 text-xl font-black border-4 border-cinza-escuro p-4 rounded-2xl hover:bg-cinza-escuro hover:text-ouro transition">
+                                <i data-lucide="message-circle" class="w-8 h-8"></i> 81 99727-4658
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-white py-16 px-6 border-t-8 border-cinza">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex items-center gap-4">
+                <img src="Escudo.jpg" alt="Rei das Pelúcias Logo" class="w-20 h-20 rounded-full border-4 border-ouro object-cover">
+                <div>
+                    <span class="font-black text-3xl block leading-none">REI DAS PELÚCIAS</span>
+                    <span class="text-ouro-dark font-bold text-sm tracking-widest uppercase">O seu abraço começa aqui</span>
+                </div>
+            </div>
+            
+            <p class="text-cinza-medio font-bold text-center max-w-sm">
+                &copy; 2025 Rei das Pelúcias. <br> Todos os direitos reservados. Recife/PE.
+            </p>
+            
+            <div class="flex gap-6">
+                <a href="https://wa.me/5581997274658" class="w-14 h-14 bg-cinza text-ouro rounded-2xl flex items-center justify-center hover:bg-ouro hover:text-cinza transition shadow-lg"><i data-lucide="message-circle"></i></a>
+                <a href="https://www.instagram.com/reidaspeluciaspe" class="w-14 h-14 bg-cinza text-ouro rounded-2xl flex items-center justify-center hover:bg-ouro hover:text-cinza transition shadow-lg"><i data-lucide="instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Fixo WhatsApp -->
+    <a href="https://wa.me/5581997274658" class="fixed bottom-10 right-10 z-50 bg-ouro text-cinza-escuro p-6 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center border-4 border-white">
+        <i data-lucide="message-circle" class="w-10 h-10"></i>
+    </a>
+
+    <script>
+        // Iniciar ícones Lucide
+        lucide.createIcons();
+
+        // Carrossel Lógica Corrigida
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('#carousel-dots span');
+
+        function showSlide(index) {
+            // Garantir que o slide existe
+            if (!slides[index]) return;
+
+            // Limpar estados ativos de slides
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+
+            // Limpar estados ativos de dots (se existirem)
+            if (dots.length > 0) {
+                dots.forEach(d => {
+                    d.classList.remove('bg-ouro');
+                    d.classList.add('bg-white/30');
+                });
+                // Garantir que o dot correspondente existe antes de manipular
+                if (dots[index]) {
+                    dots[index].classList.add('bg-ouro');
+                    dots[index].classList.remove('bg-white/30');
+                }
+            }
+        }
+
+        // Loop automático
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Click manual nos dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Animação de Reveal no Scroll
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
