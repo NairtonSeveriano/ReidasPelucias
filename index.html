@@ -131,6 +131,19 @@
         .shadow-ouro {
             box-shadow: 0 10px 30px -10px rgba(255, 215, 0, 0.5);
         }
+
+        /* Estilos para Vídeo Placeholder */
+        .video-placeholder {
+            background: var(--cinza-escuro);
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 2rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -146,21 +159,23 @@
                 </div>
             </div>
             
-            <div class="hidden md:flex gap-8 font-bold text-cinza-medio uppercase text-sm">
+            <div class="hidden lg:flex gap-6 font-bold text-cinza-medio uppercase text-xs">
                 <a href="#inicio" class="hover:text-ouro transition">Início</a>
                 <a href="#colecoes" class="hover:text-ouro transition">Pelúcias</a>
+                <a href="#videos" class="hover:text-ouro transition">Vídeos</a>
+                <a href="#catalogo" class="hover:text-ouro transition">Catálogo</a>
                 <a href="#maquinas" class="hover:text-ouro transition">Máquinas</a>
                 <a href="#onde-estamos" class="hover:text-ouro transition">Feiras</a>
             </div>
 
-            <a href="https://wa.me/5581997274658" class="btn-principal px-6 py-2 rounded-full font-bold flex items-center gap-2">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <a href="https://wa.me/5581997274658" class="btn-principal px-6 py-2 rounded-full font-bold flex items-center gap-2 text-sm">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
                 ZAP
             </a>
         </div>
     </nav>
 
-    <!-- Banner Carrossel (Início) - Sem botões conforme solicitado -->
+    <!-- Banner Carrossel (Início) -->
     <section id="inicio" class="carousel-container pt-16">
         <div class="carousel-slide active" style="background-image: url('IMG_20251130_122018_247.jpg');"></div>
         <div class="carousel-slide" style="background-image: url('IMG_20251129_130432_408.jpg');"></div>
@@ -182,7 +197,7 @@
             </div>
         </div>
         
-        <!-- Controlos do Carrossel (Ajustado para 5 slides) -->
+        <!-- Controlos do Carrossel -->
         <div id="carousel-dots" class="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
             <span class="w-10 h-2 bg-ouro rounded-full cursor-pointer"></span>
             <span class="w-10 h-2 bg-white/30 rounded-full cursor-pointer"></span>
@@ -213,7 +228,7 @@
     <!-- Secção de Pelúcias (Coleções) -->
     <section id="colecoes" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16 reveal">
-            <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Nossas <span class="text-ouro">Coleções</span></h2>
+            <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter text-cinza-escuro">Nossas <span class="text-ouro-dark">Coleções</span></h2>
             <div class="w-32 h-2 bg-ouro mx-auto mb-6 rounded-full"></div>
             <p class="text-cinza-medio text-xl font-medium">Temos pequenas, grandes e megas de diversos personagens!</p>
         </div>
@@ -226,7 +241,7 @@
                 </div>
                 <div class="p-8 text-center">
                     <h3 class="text-3xl font-black mb-3 uppercase">Pequenas</h3>
-                    <p class="text-cinza-medio font-medium">Ideais para colecionar e levar para qualquer lado. Personagens exclusivos!</p>
+                    <p class="text-cinza-medio font-medium">Ideais para colecionar e levar para qualquer lado.</p>
                 </div>
             </div>
 
@@ -237,7 +252,7 @@
                 </div>
                 <div class="p-8 text-center">
                     <h3 class="text-3xl font-black mb-3 text-ouro-dark uppercase">Grandes</h3>
-                    <p class="text-cinza-medio font-medium">O tamanho perfeito para oferecer e decorar o seu quarto com doçura.</p>
+                    <p class="text-cinza-medio font-medium">O tamanho perfeito para decorar o seu quarto.</p>
                 </div>
             </div>
 
@@ -248,14 +263,106 @@
                 </div>
                 <div class="p-8 text-center">
                     <h3 class="text-3xl font-black mb-3 uppercase">Megas</h3>
-                    <p class="text-cinza-medio font-medium">Pelúcias gigantes para abraços inesquecíveis. O destaque do Rei!</p>
+                    <p class="text-cinza-medio font-medium">Pelúcias gigantes para abraços inesquecíveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SECÇÃO: VÍDEOS -->
+    <section id="videos" class="py-24 px-6 bg-cinza text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">O Rei em <span class="text-ouro">Ação</span></h2>
+                <div class="w-32 h-2 bg-ouro mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-400 text-xl font-medium">Assista aos bastidores e às nossas conquistas nas máquinas!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <!-- Placeholder para o vídeo principal -->
+                    <div class="video-placeholder border-4 border-ouro group">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-500" style="background-image: url('IMG_20251214_183451_403.jpg');"></div>
+                        <i data-lucide="play-circle" class="w-24 h-24 text-ouro relative z-10 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                </div>
+                <div class="space-y-8 reveal" style="transition-delay: 0.1s;">
+                    <h3 class="text-4xl font-black uppercase tracking-tight text-ouro">Capturas Reais</h3>
+                    <p class="text-xl text-gray-400 leading-relaxed">
+                        Veja como as suas pelúcias favoritas são conquistadas. No nosso Instagram, partilhamos diariamente vídeos das máquinas de garra e tesoura.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="aspect-[9/16] bg-white/10 rounded-xl overflow-hidden border border-white/20">
+                            <img src="IMG_20251129_130432_408.jpg" alt="Vídeo Curto 1" class="w-full h-full object-cover opacity-50">
+                        </div>
+                        <div class="aspect-[9/16] bg-white/10 rounded-xl overflow-hidden border border-white/20">
+                            <img src="IMG_20251130_121926_856.jpg" alt="Vídeo Curto 2" class="w-full h-full object-cover opacity-50">
+                        </div>
+                        <div class="aspect-[9/16] bg-white/10 rounded-xl overflow-hidden border border-white/20">
+                            <img src="IMG_20251130_122018_247.jpg" alt="Vídeo Curto 3" class="w-full h-full object-cover opacity-50">
+                        </div>
+                    </div>
+                    <a href="https://www.instagram.com/reidaspeluciaspe" target="_blank" class="inline-flex items-center gap-3 bg-ouro text-cinza-escuro px-8 py-4 rounded-full font-black uppercase hover:bg-white transition-all">
+                        <i data-lucide="instagram"></i> Ver Mais Vídeos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SECÇÃO: CATÁLOGO -->
+    <section id="catalogo" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter text-cinza-escuro">Nosso <span class="text-ouro-dark">Catálogo</span></h2>
+                <div class="w-32 h-2 bg-ouro mx-auto mb-6 rounded-full"></div>
+                <p class="text-cinza-medio text-xl font-medium">Explore as centenas de opções que temos disponíveis.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <!-- Categorias de Exemplo -->
+                <div class="bg-cinza-claro p-6 rounded-[30px] border-2 border-transparent hover:border-ouro transition-all group">
+                    <div class="w-full aspect-square rounded-2xl bg-white mb-4 overflow-hidden border border-gray-200">
+                        <img src="IMG_20251129_130432_408.jpg" alt="Categoria Anime" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h4 class="text-xl font-black uppercase text-center">Anime & Games</h4>
+                </div>
+                <div class="bg-cinza-claro p-6 rounded-[30px] border-2 border-transparent hover:border-ouro transition-all group">
+                    <div class="w-full aspect-square rounded-2xl bg-white mb-4 overflow-hidden border border-gray-200">
+                        <img src="IMG_20251130_122018_247.jpg" alt="Categoria Clássicos" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h4 class="text-xl font-black uppercase text-center">Clássicos</h4>
+                </div>
+                <div class="bg-cinza-claro p-6 rounded-[30px] border-2 border-transparent hover:border-ouro transition-all group">
+                    <div class="w-full aspect-square rounded-2xl bg-white mb-4 overflow-hidden border border-gray-200">
+                        <img src="IMG_20251130_121926_856.jpg" alt="Categoria Fofuras" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h4 class="text-xl font-black uppercase text-center">Fofuras</h4>
+                </div>
+                <div class="bg-cinza-claro p-6 rounded-[30px] border-2 border-transparent hover:border-ouro transition-all group">
+                    <div class="w-full aspect-square rounded-2xl bg-white mb-4 overflow-hidden border border-gray-200">
+                        <img src="IMG_20251129_144908_899.jpg" alt="Categoria Limitados" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <h4 class="text-xl font-black uppercase text-center">Exclusivos</h4>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center reveal">
+                <div class="bg-cinza p-10 rounded-[40px] border-4 border-ouro inline-block max-w-2xl">
+                    <h3 class="text-3xl font-black text-white uppercase mb-4">Acesse o Catálogo Completo</h3>
+                    <p class="text-gray-400 mb-8 font-medium">Receba nosso catálogo em PDF ou veja as novidades no nosso catálogo digital via WhatsApp.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://wa.me/5581997274658?text=Olá! Gostaria de ver o catálogo completo do Rei das Pelúcias." class="btn-principal px-10 py-5 rounded-full font-black uppercase flex items-center justify-center gap-3">
+                            <i data-lucide="layout-list"></i> Ver no WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Secção Máquinas -->
-    <section id="maquinas" class="py-24 px-6 bg-white border-y-8 border-cinza">
+    <section id="maquinas" class="py-24 px-6 bg-cinza-claro border-y-8 border-cinza">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2 reveal">
                 <div class="relative">
@@ -269,7 +376,6 @@
                 <h2 class="text-5xl font-black mb-8 leading-tight uppercase">Mestres das <span class="text-ouro">Máquinas</span></h2>
                 <p class="text-xl text-cinza-medio mb-8 leading-relaxed font-medium">
                     O nosso diferencial está na origem! Todas as nossas pelúcias são conquistadas em **máquinas de garras** e **máquinas de corte em tesoura**. 
-                    Por isso, garantimos pelúcias raras, importadas e com a qualidade que só encontra aqui.
                 </p>
                 <div class="space-y-6">
                     <div class="flex items-center gap-6 p-6 bg-cinza text-white rounded-[25px] border-l-8 border-ouro shadow-lg">
@@ -310,7 +416,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Horários Precisos -->
+                <!-- Horários -->
                 <div class="bg-white/5 p-10 rounded-[40px] border-2 border-ouro/30 reveal">
                     <h3 class="text-3xl font-black mb-8 text-ouro flex items-center gap-3 uppercase">
                         <i data-lucide="calendar"></i> Horários das Feiras
@@ -331,19 +437,12 @@
                             <span class="bg-ouro text-cinza-escuro px-6 py-2 rounded-lg font-black text-xl italic shadow-ouro">12h às 18h</span>
                         </div>
                     </div>
-                    <div class="mt-10 flex items-start gap-4 p-6 bg-ouro/10 rounded-2xl border border-ouro/30">
-                        <i data-lucide="map-pin" class="text-ouro w-8 h-8 shrink-0"></i>
-                        <p class="text-lg font-medium leading-tight italic">
-                            Localização: Cais da Aurora, Recife/PE. Procure pelo stand mais fofo da feira!
-                        </p>
-                    </div>
                 </div>
 
                 <!-- Compre Online -->
                 <div class="reveal">
                     <div class="bg-ouro p-10 rounded-[40px] text-cinza-escuro h-full flex flex-col justify-center shadow-ouro">
-                        <h3 class="text-4xl font-black mb-10 uppercase leading-none">Compre Online</h3>
-                        
+                        <h3 class="text-4xl font-black mb-10 uppercase leading-none text-center md:text-left">Compre Online</h3>
                         <div class="space-y-4">
                             <a href="https://www.instagram.com/reidaspeluciaspe" target="_blank" class="flex items-center gap-4 text-xl font-black border-4 border-cinza-escuro p-4 rounded-2xl hover:bg-cinza-escuro hover:text-ouro transition uppercase">
                                 <i data-lucide="instagram" class="w-8 h-8"></i> @reidaspeluciaspe
@@ -386,22 +485,17 @@
     </a>
 
     <script>
-        // Iniciar ícones Lucide
         lucide.createIcons();
 
-        // Lógica Robusta do Carrossel
+        // Carrossel
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('#carousel-dots span');
 
         function showSlide(index) {
             if (!slides[index]) return;
-
-            // Transição de Slides
             slides.forEach(s => s.classList.remove('active'));
             slides[index].classList.add('active');
-
-            // Actualização de Dots
             if (dots.length > 0) {
                 dots.forEach(d => {
                     d.classList.remove('bg-ouro');
@@ -414,13 +508,11 @@
             }
         }
 
-        // Intervalo Automático (5 segundos)
         setInterval(() => {
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }, 5000);
 
-        // Controlo Manual por Dots
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentSlide = index;
@@ -428,7 +520,7 @@
             });
         });
 
-        // Revelação Automática no Scroll
+        // Revelação no Scroll
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
