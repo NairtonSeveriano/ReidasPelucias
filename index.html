@@ -44,7 +44,7 @@
         .bg-cinza { background-color: var(--cinza-escuro); }
         .text-cinza { color: var(--cinza-escuro); }
 
-        /* Estilo do Banner Carrossel - Reduzido para 64vh (80% de 80vh) */
+        /* Estilo do Banner Carrossel - 64vh */
         .carousel-container {
             position: relative;
             height: 64vh;
@@ -267,7 +267,7 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2 reveal">
                 <div class="relative">
-                    <img src="Garra.jpg" alt="Máquina de Garra Rei das Pelúcias" class="rounded-[40px] shadow-2xl border-8 border-ouro">
+                    <img src="Garra.png" alt="Máquina de Garra Rei das Pelúcias" class="rounded-[40px] shadow-2xl border-8 border-ouro">
                     <div class="absolute -bottom-8 -right-8 w-48 h-48 rounded-full bg-ouro p-4 flex items-center justify-center text-center shadow-2xl border-4 border-white">
                         <span class="font-black text-cinza-escuro text-xl uppercase italic">Direto da<br>Garra!</span>
                     </div>
@@ -347,16 +347,11 @@
                     </div>
                 </div>
 
-                <!-- Web / Social -->
+                <!-- Web / Social (COMPRE ONLINE AJUSTADO) -->
                 <div class="reveal">
                     <div class="bg-ouro p-10 rounded-[40px] text-cinza-escuro h-full flex flex-col justify-center shadow-ouro">
-                        <h3 class="text-4xl font-black mb-6 uppercase leading-none">Compre Online</h3>
-                        <p class="text-xl mb-10 font-bold leading-tight">Não quer esperar pelo fim de semana? Peça agora pelo nosso domínio oficial:</p>
+                        <h3 class="text-4xl font-black mb-10 uppercase leading-none">Compre Online</h3>
                         
-                        <a href="http://reidaspelucias.rec.br" class="text-3xl font-black underline hover:text-black transition break-all leading-tight mb-10">
-                            reidaspelucias.rec.br
-                        </a>
-
                         <div class="space-y-4">
                             <a href="https://www.instagram.com/reidaspeluciaspe" class="flex items-center gap-4 text-xl font-black border-4 border-cinza-escuro p-4 rounded-2xl hover:bg-cinza-escuro hover:text-ouro transition">
                                 <i data-lucide="instagram" class="w-8 h-8"></i> @reidaspeluciaspe
@@ -408,14 +403,11 @@
         const dots = document.querySelectorAll('#carousel-dots span');
 
         function showSlide(index) {
-            // Garantir que o slide existe
             if (!slides[index]) return;
 
-            // Limpar estados ativos de slides
             slides.forEach(s => s.classList.remove('active'));
             slides[index].classList.add('active');
 
-            // Limpar estados ativos de dots
             if (dots.length > 0) {
                 dots.forEach(d => {
                     d.classList.remove('bg-ouro');
@@ -428,13 +420,11 @@
             }
         }
 
-        // Ciclo automático
         setInterval(() => {
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }, 5000);
 
-        // Clique manual nos dots
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentSlide = index;
